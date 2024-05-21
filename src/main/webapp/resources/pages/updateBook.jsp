@@ -26,7 +26,7 @@
 <label for="fauthor">Author name</label>
 <input type="text" id="fauthor" name="fauthor" value="${requestScope.authorName}" required><br>
 <label for="fpublisher">Publisher</label>
-<input type="text" id="fpublisher" name="fpublishwer" value="${requestScope.publisher}" required><br>
+<input type="text" id="fpublisher" name="fpublisher" value="${requestScope.publisher}" required><br>
 <label for="fyear">Pubication year</label>
 <input type="number" min="1900" max="2024" step="1" value="${requestScope.year}" id="fyear" name="fyear"> <br>
 <label for="fgenre">Genre</label>

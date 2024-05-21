@@ -32,38 +32,64 @@ public class SearchServlet extends HttpServlet {
 	}
 	
 	private List<Book> searchForBooks(HttpServletRequest request, HttpServletResponse response){
-		PreparedStatement statement=null;
+		List<Book> bookList = (List<Book>) request.getSession().getAttribute("books");
 		String search = request.getParameter("searchFor");
+		search=search.trim();
+		search=search.toLowerCase();
 		String in = request.getParameter("search_parameter");
 		List<Book> searchBooks = new ArrayList<>();
 		
-		Connection connection = DatabaseConnection.getInstance().getConnection();
-		String sql="CALL search(?,?)";
-		
-		
-		try {
-			statement = connection.prepareStatement(sql);
-			statement.setString(1, search);
-			statement.setString(2, in);
-			ResultSet rs = statement.executeQuery(); // Execute the prepared statement, not the SQL string
-			
-			while(rs.next()) {
-				String name = rs.getString("book_name");
-				String author = rs.getString("author");
-				String publisher = rs.getString("publisher");
-				String year = rs.getString("year");
-				String genres = rs.getString("genres");
-				String isbn = rs.getString("isbn");
-				
-				Book book = new Book(name, author,publisher,year,genres,isbn);
-				searchBooks.add(book);
+		switch(in) {
+		case "book" : 
+			for(Book b :  bookList) {
+				if(b.getBookName().toLowerCase().contains(search))
+					searchBooks.add(b);
 			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
+		break;
+		case "author":
+			for(Book b : bookList) {
+				if(b.getAuthorName().toLowerCase().contains(search))
+					searchBooks.add(b);
+			}
+		break;
+		case "publisher":
+			for(Book b : bookList) {
+				if(b.getPublisher().toLowerCase().contains(search))
+					searchBooks.add(b);
+			}
+		break;
+		case "year" :
+			for(Book b : bookList) {
+				if(b.getYear().equals(search))
+					searchBooks.add(b);
+			}
+		break;
+		case "genre" :
+			for(Book b : bookList) {
+				String[] array = b.getGenre().split(",");
+				for(int i=0; i< array.length; i++) {
+					array[i]=array[i].trim();
+					if(array[i].equals(search))
+						searchBooks.add(b);
+				}
+				
+			}
+		break;
+		case "isbn" :
+			for(Book b : bookList) {
+				if(b.getISBN().equals(search))
+					searchBooks.add(b);
+			}
+		break;
 		}
 		
+		for (int i = 0; i < searchBooks.size(); i++) {
+		    System.out.println(searchBooks.get(i).getAuthorName());
+		}
+
+		
 		return searchBooks;
+		
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

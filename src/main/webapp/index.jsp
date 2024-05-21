@@ -28,7 +28,7 @@
 				</tr>
 			</thead>
 			<tbody>
-<% List<Book> books = (List<Book>) request.getAttribute("books");
+<% List<Book> books = (List<Book>) request.getSession().getAttribute("books");
    if (books != null) {
        for (Book book : books) { %>
            <tr>
@@ -69,18 +69,18 @@
 
 	<div class="searchContainer">
 		<form action="search" method="POST">
-	          	<input class="search-bar" type="text" name="searchFor" placeholder="Search..."> <br>
-	          	<input type="radio" id="book" name="search_parameter" value="book">
+	          	<input class="search-bar" type="text" name="searchFor" placeholder="Search..." required> <br>
+	          	<input type="radio" id="book" name="search_parameter" value="book" required>
 				<label for="book">Book name</label>
-				<input type="radio" id="author" name="search_parameter" value="author">
+				<input type="radio" id="author" name="search_parameter" value="author" required>
 				<label for="author">Author name</label>
-				<input type="radio" id="publisher" name="search_parameter" value="publisher">
+				<input type="radio" id="publisher" name="search_parameter" value="publisher" required>
 				<label for="publisher">Publisher</label> 
-				<input type="radio" id="year" name="search_parameter" value="year">
+				<input type="radio" id="year" name="search_parameter" value="year" required>
 				<label for="year">Published year</label> 
-				<input type="radio" id="genre" name="search_parameter" value="genre">
+				<input type="radio" id="genre" name="search_parameter" value="genre" required>
 				<label for="genre">Genre</label> 
-				<input type="radio" id="isbn" name="search_parameter" value="isbn">
+				<input type="radio" id="isbn" name="search_parameter" value="isbn" required>
 				<label for="isbn">ISBN</label><br> 
 	            <input type="submit" value="Search">
 		</form>
