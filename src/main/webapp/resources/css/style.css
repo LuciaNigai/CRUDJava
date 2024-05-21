@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans&display=swap')
+	;
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Quattrocento+Sans&display=swap')
+	;
+
+*{
+	margin: 20;
+	padding: 0;
+	font-family: 'Quattrocento Sans', sans-serif;
+	/*outline: auto;*/
+	color: rgb(60, 95, 96);
+}
+
+body{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.main_class h1{
+	text-align: center;
+}
+
+.main_class table, tr,td,th{
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 10px;
+}
+
+.main_class td{
+	text-align: center;
+}
+
+button {
+  padding: 7px;
+  border: 1px solid rgb(60, 95, 96);
+  border-radius: 20px;
+  font-size: 15px;
+  background-color: rgb(193, 216, 217);
+  transition: box-shadow 0.3s; /* Add transition for smooth effect */
+}
+
+input[type=submit]{
+	padding: 7px;
+  border: 1px solid rgb(60, 95, 96);
+  border-radius: 20px;
+  font-size: 15px;
+  background-color: rgb(193, 216, 217);
+  transition: box-shadow 0.3s; 
+}
+input[type=submit]:hover{
+  box-shadow: 0 0 10px rgba(60, 95, 96, 0.3); /* Add shadow on hover */
+  background-color: rgba(203, 167, 152,0.7);
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 0 0 10px rgba(60, 95, 96, 0.3); /* Add shadow on hover */
+  background-color: rgba(203, 167, 152,0.7);
+  cursor: pointer;
+}
+
+.newBookForm{
+	margin: 10px;
+}
+
+input[type=text], input[type=number]{
+	border-radius:5px;
+	padding: 5px;
+	margin:5px 10px;
+}
+
+.search-bar {
+  margin-right: 10px;
+}

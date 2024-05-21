@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" metadata-complete="false" version="5.0">
+  <display-name> Welcome to Tomcat</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>DeleteAllBooksServlet</display-name>
+    <servlet-name>DeleteAllBooksServlet</servlet-name>
+    <servlet-class>servlets.DeleteAllBooksServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteAllBooksServlet</servlet-name>
+    <url-pattern>/DeleteAllBooksServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserLeftPage</display-name>
+    <servlet-name>UserLeftPage</servlet-name>
+    <servlet-class>servlets.UserLeftPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserLeftPage</servlet-name>
+    <url-pattern>/UserLeftPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteBookServlet</display-name>
+    <servlet-name>DeleteBookServlet</servlet-name>
+    <servlet-class>servlets.DeleteBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteBookServlet</servlet-name>
+    <url-pattern>/DeleteBookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchServlet</display-name>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>servlets.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/SearchServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
