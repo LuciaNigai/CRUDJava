@@ -53,6 +53,9 @@
                		<form action="delete-book" method="POST" onsubmit="return deleteBookSubmit()">
                        <input type="hidden" name="bookName" value="<%= book.getBookName() %>">
                        <input type="hidden" name="authorName" value="<%= book.getAuthorName() %>">
+                       <input type="hidden" name="publisher" value="<%= book.getPublisher() %>">
+                       <input type="hidden" name="year" value="<%= book.getYear() %>">
+                       <input type="hidden" name="isbn" value="<%= book.getISBN() %>">
                        <input type="submit" value="Delete">
                    </form>
                </td>
@@ -87,8 +90,7 @@
 	</div>
 	
 <div class="main_class">
-	<%
-	List<Book> searchBooks = (List<Book>) session.getAttribute("searchBooks");
+	<%List<Book> searchBooks = (List<Book>) session.getAttribute("searchBooks");
 	
    if (searchBooks != null && !searchBooks.isEmpty()) { %>
     <table>

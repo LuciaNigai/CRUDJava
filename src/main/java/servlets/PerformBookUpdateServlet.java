@@ -99,7 +99,6 @@ public class PerformBookUpdateServlet extends HttpServlet {
 				statement.executeUpdate();
 
 				message = "The changes were applied";
-				
 
 			} catch (SQLException e) {
 				message = "Error: " + e.getMessage();

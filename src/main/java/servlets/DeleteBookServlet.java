@@ -35,6 +35,9 @@ public class DeleteBookServlet extends HttpServlet {
 		
 		String bookName = request.getParameter("bookName");
 		String authorName = request.getParameter("authorName");
+		String publisher = request.getParameter("publisher");
+		String year = request.getParameter("year");
+		String isbn = request.getParameter("isbn");
 		System.out.println(bookName);
 		System.out.println(authorName);
 		String message = "";
@@ -42,14 +45,17 @@ public class DeleteBookServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Connection connection = DatabaseConnection.getInstance().getConnection();
-		String sql = "CALL deleteBook(?,?)";
+		String sql = "CALL deleteBook(?,?,?,?,?)";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, bookName);
 			statement.setString(2, authorName);
+			statement.setString(3, publisher);
+			statement.setString(4, year);
+			statement.setString(5, isbn);
 			
 			int rowsInserted = statement.executeUpdate();
-			if(rowsInserted > 0) {
+			if(rowsInserted != 0) {
 				message="Book deleted successfully";
 			}
 			
