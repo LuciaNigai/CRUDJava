@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>UnifunProject</title>
+<title>CRUD Books</title>
 <link rel="stylesheet" type="text/css" href="resources/css/style.css" />
 <script type="text/javascript" src="resources/js/script.js" defer></script>
 <%@ page import="java.util.List" %>
